@@ -1,51 +1,43 @@
 # Mi Moda
 
-A luxe, RHODE-inspired fashion social app concept built with Expo and React Native.
+A fashion community app for sharing outfit photos, collecting quick Love or Pass votes, and discussing styling ideas. Built with Expo and React Native for iOS, Android, and web.
 
-## Features
+## Highlights
 
-- Photo-first outfit posting with a visible upload flow
-- Quick-vote feed with Love and Pass reactions
-- Discussion thread feed for deeper styling conversations
-- Profile creation and sign-in flow
-- Moderation guardrails to block nudity and harmful language before posting
-- A warm, tactile editorial aesthetic for a premium fashion audience
+- Separate quick-vote and discussion feeds
+- Photo-first outfit posts with occasion categories
+- One-choice Love or Pass voting with visible totals
+- Account screens backed by a Supabase auth service layer
+- Content checks for explicit and harmful language
+- Responsive preview through Expo for web
 
-## Run locally
+## Tech Stack
 
-1. Install dependencies:
-   npm install
-2. Start the app:
-   npm start
-3. Open the Expo dev tools or use a simulator/emulator to preview the app.
+- Expo SDK 58, React Native 0.88, React 19, TypeScript
+- Supabase client and SecureStore session persistence
+- Vitest unit tests
 
-## Production readiness foundation
+## Run Locally
 
-This project now includes the app-store release foundation for Expo projects:
+```bash
+npm install
+npx expo start
+```
 
-- release app config in app.json
-- EAS build profiles in eas.json
-- environment variable template for Supabase and backend config
-- secure storage setup for auth/session persistence
-- moderation utility for content safety checks
-- start of a backend-ready architecture for authentication and data storage
+Press `w` to open the web preview, or scan the terminal QR code with Expo Go on a phone connected to the same network.
 
-## Required next steps before App Store submission
+## Checks
 
-1. Create a Supabase project and add your credentials to .env
-2. Run npm install and npm run doctor
-3. Create an Expo account and initialize EAS with eas login
-4. Configure projectId in app.json or via eas build
-5. Build with eas build --platform ios and eas build --platform android
-6. Submit through App Store Connect / Google Play
+```bash
+npx expo-doctor
+npx tsc --noEmit
+npm test
+```
 
-## Included screens
+## Project Status
 
-- Quick feed: fast outfit reactions and photo voting
-- Thread feed: outfit advice and community discussion
-- Profile: account creation, sign-in, and sign-out
-- Safety filters: automatic moderation for explicit or harmful content
+The UI and local interaction flows are implemented. Supabase auth and database schema scaffolding are included, but live accounts and persisted community content require configuring a Supabase project and its environment variables. Moderation currently provides client-side text checks and should be paired with server-side enforcement before public launch.
 
-## Notes
+## Repository
 
-This is still a front-end prototype with backend-ready scaffolding. For true production publishing, connect a real auth + database backend, add moderation and storage, then build with EAS before App Store submission.
+[Mi Moda on GitHub](https://github.com/eviegut-cell/fashionapp)
