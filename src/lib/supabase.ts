@@ -3,6 +3,7 @@ import * as SecureStore from 'expo-secure-store';
 
 const supabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL ?? '';
 const supabaseAnonKey = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY ?? '';
+export const isSupabaseConfigured = Boolean(supabaseUrl && supabaseAnonKey);
 
 const secureStorage = {
   async getItem(key: string) {
@@ -16,7 +17,10 @@ const secureStorage = {
   },
 };
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
+export const supabase = createClient(
+  supabaseUrl || 'https://not-configured.supabase.co',
+  supabaseAnonKey || 'not-configured-anon-key',
+  {
   auth: {
     persistSession: true,
     autoRefreshToken: true,
@@ -28,6 +32,5 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
       'X-Client-Info': 'mi-moda-expo',
     },
   },
-});
-
-export const isSupabaseConfigured = Boolean(supabaseUrl && supabaseAnonKey);
+  },
+);

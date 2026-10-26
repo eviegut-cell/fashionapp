@@ -1,20 +1,11 @@
+import type { SupabaseClient } from '@supabase/supabase-js';
+
 export type AuthResult = {
   user: { id: string; email?: string | null } | null;
   error: Error | null;
 };
 
-type SupabaseClientLike = {
-  auth: {
-    signUp: (payload: unknown) => Promise<{ data: { user?: { id: string; email?: string | null } | null }; error: { message: string } | null }>;
-    signInWithPassword: (payload: unknown) => Promise<{ data: { user?: { id: string; email?: string | null } | null }; error: { message: string } | null }>;
-    signOut: () => Promise<{ error: { message: string } | null }>;
-  };
-  from: (table: string) => {
-    upsert: (payload: unknown, options?: { onConflict?: string }) => Promise<{ error: { message: string } | null }>;
-  };
-};
-
-export function createAuthService(client: SupabaseClientLike) {
+export function createAuthService(client: SupabaseClient) {
   return {
     async signUpWithEmail(email: string, password: string, username: string): Promise<AuthResult> {
       const { data, error } = await client.auth.signUp({
