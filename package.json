@@ -1,0 +1,33 @@
+{
+  "name": "fashionapp",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.116.0",
+    "expo": "~57.0.24",
+    "expo-secure-store": "^57.0.4",
+    "expo-status-bar": "~57.0.1",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-native": "0.86.3",
+    "react-native-web": "^0.21.2"
+  },
+  "devDependencies": {
+    "@types/react": "~19.2.2",
+    "typescript": "~6.0.3",
+    "vitest": "^4.1.11"
+  },
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "doctor": "npx expo-doctor",
+    "test": "vitest run",
+    "build:ios": "npx eas-cli build --platform ios",
+    "build:android": "npx eas-cli build --platform android",
+    "submit:ios": "npx eas-cli submit -p ios",
+    "submit:android": "npx eas-cli submit -p android"
+  },
+  "private": true
+}

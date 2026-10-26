@@ -1,0 +1,40 @@
+{
+  "expo": {
+    "name": "Mi Moda",
+    "slug": "mi-moda",
+    "scheme": "mi-moda",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "bundleIdentifier": "com.mimoda.app",
+      "buildNumber": "1",
+      "supportsTablet": false,
+      "usesAppleSignIn": false,
+      "infoPlist": {
+        "NSCameraUsageDescription": "Mi Moda needs camera access so you can upload outfit photos.",
+        "NSPhotoLibraryUsageDescription": "Mi Moda needs photo library access so you can add your looks to posts."
+      }
+    },
+    "android": {
+      "package": "com.mimoda.app",
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "backgroundColor": "#F4EEE8",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": ""
+      }
+    }
+  }
+}
